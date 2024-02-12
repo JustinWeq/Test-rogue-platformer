@@ -8,10 +8,10 @@ namespace Test_rogue_platformer
 {
     class AABB
     {
-        private float m_width;
-        private float m_height;
-        private float m_x;
-        private float m_y;
+        protected float m_width;
+        protected float m_height;
+        protected float m_x;
+        protected float m_y;
 
         public float X
         {

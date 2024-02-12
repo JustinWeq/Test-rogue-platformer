@@ -11,8 +11,8 @@ namespace Test_rogue_platformer
 {
     class Object
     {
-        private AABB m_aabb;
-        private Texture2D m_sprite;
+        protected AABB m_aabb;
+        protected Texture2D m_sprite;
 
         public Object(AABB aabb = null,Texture2D sprite = null)
         {

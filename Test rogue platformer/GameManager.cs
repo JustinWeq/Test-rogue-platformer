@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Content;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,21 +9,29 @@ namespace Test_rogue_platformer
 {
     class GameManager
     {
-        private static GameManager instance;
+        private static GameManager m_instance;
+        private ContentManager m_contentManager;
+        private Grid m_grid;
+        private Renderer m_renderer;
+        private Player m_player;
         private GameManager()
         { 
+            //create the grid renderer and player
+            m_player = new Player();
+            m_grid = new Grid();
+            m_renderer = Renderer.GetRenderer();
         }
 
         public static GameManager Manager
         {
             get
             {
-                if (instance == null)
+                if (m_instance == null)
                 {
-                    return instance = new GameManager();
+                    return m_instance = new GameManager();
                 }
                 else
-                    return instance;
+                    return m_instance;
             }
         }
         /// <summary>
@@ -32,7 +41,7 @@ namespace Test_rogue_platformer
         /// <returns></returns>
         public static GameManager GetManagerUnsafe()
         {
-            return instance;
+            return m_instance;
         }
 
         /// <summary>
@@ -42,6 +51,31 @@ namespace Test_rogue_platformer
         public static GameManager GetManagerSafe()
         {
             return Manager;
+        }
+
+        public void SetContentManager(ContentManager contentManager)
+        {
+            m_contentManager = contentManager;
+        }
+
+        public ContentManager GetContentManager()
+        {
+            return m_contentManager;
+        }
+
+        public Grid GetGrid()
+        {
+            return m_grid;
+        }
+
+        public Renderer GetRenderer()
+        { 
+            return m_renderer;
+        }
+
+        public Player GetPlayer() 
+        { 
+            return m_player;
         }
     }
 }
