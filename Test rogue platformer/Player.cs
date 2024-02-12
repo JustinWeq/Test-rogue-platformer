@@ -9,5 +9,10 @@ namespace Test_rogue_platformer
     class Player : Object
     {
 
+        public void Update()
+        {
+            //check for input and move
+            base.Update();
+        }
     }
 }

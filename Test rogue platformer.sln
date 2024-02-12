@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test rogue platformer", "Test rogue platformer\Test rogue platformer.csproj", "{69E1D680-1679-4A21-AAD8-62DC4634EEFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test rogue platformer", "Test rogue platformer\Test rogue platformer.csproj", "{69E1D680-1679-4A21-AAD8-62DC4634EEFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{74B7EDBA-7BA7-4FEC-8DD7-0EBD4F91A293}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
