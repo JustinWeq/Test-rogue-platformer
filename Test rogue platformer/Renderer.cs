@@ -13,6 +13,7 @@ namespace Test_rogue_platformer
         private static Renderer m_instance;
         private SpriteBatch m_spriteBatch;
         private Vector2 m_camera;
+        private GameManager m_manager;
 
         public static Renderer Instance
         {
@@ -21,6 +22,9 @@ namespace Test_rogue_platformer
 
         private Renderer()
         {
+
+            //get the manager
+            m_manager = GameManager.Manager;
 
         }
 
@@ -47,6 +51,13 @@ namespace Test_rogue_platformer
         public void Draw()
         {
             //begin drawing
+            m_spriteBatch.Begin();
+
+            //begin by drawing the player
+            m_manager.GetPlayer().Draw(m_spriteBatch, m_camera);
+
+            //end drawing
+            m_spriteBatch.End();
 
         }
 

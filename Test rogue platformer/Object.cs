@@ -9,17 +9,16 @@ using System.Threading.Tasks;
 
 namespace Test_rogue_platformer
 {
-    class Object
+    class Object : AABB
     {
-        protected AABB m_aabb;
+
         protected Texture2D m_sprite;
 
-        public Object(AABB aabb = null,Texture2D sprite = null)
+        public Object(Texture2D sprite = null) : base()
         {
-            m_aabb = aabb;
+            
             m_sprite = sprite;
-            if (aabb == null)
-                m_aabb = new AABB();
+
         }
 
         public void Update()
@@ -30,7 +29,12 @@ namespace Test_rogue_platformer
         public void Draw(SpriteBatch spriteBatch, float camX = 0.0f, float camY = 0.0f)
         {
             //draw the sprite
-            spriteBatch.Draw(m_sprite, new Vector2(m_aabb.X, m_aabb.Y) - new Vector2(camX, camY), Color.White);
+            spriteBatch.Draw(m_sprite, new Vector2(X, Y) - new Vector2(camX, camY), Color.White);
+        }
+
+        public void Draw(SpriteBatch spriteBatch,Vector2 cam)
+        {
+            Draw(spriteBatch, cam.X, cam.Y);
         }
 
         public void SetSprite(Texture2D sprite)

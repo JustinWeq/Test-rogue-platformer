@@ -25,6 +25,8 @@ namespace Test_rogue_platformer
         {
             // TODO: Add your initialization logic here
 
+            GameManager.Manager.Init();
+
             base.Initialize();
         }
 
@@ -37,6 +39,9 @@ namespace Test_rogue_platformer
             //load the test textures
             playerTexture = Content.Load<Texture2D>("player");
             wallTexture = Content.Load<Texture2D>("wall");
+
+            //set the player sprite
+            GameManager.Manager.PlayerInstance.SetSprite(playerTexture);
         }
 
         protected override void Update(GameTime gameTime)
@@ -53,6 +58,9 @@ namespace Test_rogue_platformer
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            //set the sprite batch on the renderer
+            Renderer.Instance.SetSpriteBatch(_spriteBatch);
 
             //call the renderer 
             Renderer.Instance.Draw();

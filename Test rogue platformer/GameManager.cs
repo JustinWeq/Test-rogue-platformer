@@ -17,13 +17,7 @@ namespace Test_rogue_platformer
         private Renderer m_renderer;
         private Player m_player;
         public const bool TEST_MODE = true;
-        private GameManager()
-        { 
-            //create the grid renderer and player
-            m_player = new Player();
-            m_grid = new Grid();
-            m_renderer = Renderer.GetRenderer();
-        }
+
 
         public void Update()
         {
@@ -53,6 +47,13 @@ namespace Test_rogue_platformer
 
                 m_renderer.MoveCamera(camPos);
             }
+        }
+
+        public void Init()
+        {
+            m_player = new Player();
+            m_grid = new Grid();
+            m_renderer = Renderer.GetRenderer();
         }
 
         public static GameManager Manager
@@ -109,6 +110,11 @@ namespace Test_rogue_platformer
         public Player GetPlayer() 
         { 
             return m_player;
+        }
+
+        public Player PlayerInstance
+        {
+            get { return m_player; }
         }
     }
 }
