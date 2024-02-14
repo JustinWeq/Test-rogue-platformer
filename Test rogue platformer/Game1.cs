@@ -44,7 +44,8 @@ namespace Test_rogue_platformer
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            // update game manager state
+            GameManager.Manager.Update();
             
             base.Update(gameTime);
         }
@@ -53,10 +54,13 @@ namespace Test_rogue_platformer
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            //call the renderer 
+            Renderer.Instance.Draw();
+
             //draw the player as a test
-            _spriteBatch.Begin();
-            _spriteBatch.Draw(playerTexture, new Vector2(32, 32), Color.White);
-            _spriteBatch.End();
+            //_spriteBatch.Begin();
+            //_spriteBatch.Draw(playerTexture, new Vector2(32, 32), Color.White);
+            //_spriteBatch.End();
 
             // TODO: Add your drawing code here
 

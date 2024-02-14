@@ -14,6 +14,11 @@ namespace Test_rogue_platformer
         private SpriteBatch m_spriteBatch;
         private Vector2 m_camera;
 
+        public static Renderer Instance
+        {
+            get { return GetRenderer(); }
+        }
+
         private Renderer()
         {
 
