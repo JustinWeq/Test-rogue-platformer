@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +12,7 @@ namespace Test_rogue_platformer
     {
         private static Renderer m_instance;
         private SpriteBatch m_spriteBatch;
+        private Vector2 m_camera;
 
         private Renderer()
         {
@@ -47,5 +49,17 @@ namespace Test_rogue_platformer
         {
             m_spriteBatch = spriteBatch;
         }
+
+        public void MoveCamera(Vector2 camera)
+        {
+            m_camera += camera;
+        }
+
+        public void SetCamera(Vector2 camera)
+        {
+            m_camera = camera;
+        }
+
+
     }
 }

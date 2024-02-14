@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +15,25 @@ namespace Test_rogue_platformer
         private Grid m_grid;
         private Renderer m_renderer;
         private Player m_player;
+        public const bool TEST_MODE = true;
         private GameManager()
         { 
             //create the grid renderer and player
             m_player = new Player();
             m_grid = new Grid();
             m_renderer = Renderer.GetRenderer();
+        }
+
+        public void Update()
+        {
+            //if in test mode then move the camera
+            if(TEST_MODE)
+            {
+                if(Keyboard.GetState().IsKeyDown(Keys.Up))
+                {
+                    //m_renderer.MoveCamera()
+                }
+            }
         }
 
         public static GameManager Manager
