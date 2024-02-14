@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Content;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
@@ -29,10 +30,28 @@ namespace Test_rogue_platformer
             //if in test mode then move the camera
             if(TEST_MODE)
             {
+                Vector2 camPos = new Vector2();
                 if(Keyboard.GetState().IsKeyDown(Keys.Up))
                 {
-                    //m_renderer.MoveCamera()
+                    camPos.Y += 5;
                 }
+
+                if(Keyboard.GetState ().IsKeyDown(Keys.Down))
+                {
+                    camPos.Y -= 5;
+                }
+
+                if(Keyboard.GetState().IsKeyDown(Keys.Left))
+                {
+                    camPos.X += 5;
+                }
+
+                if(Keyboard.GetState().IsKeyDown (Keys.Right))
+                {
+                    camPos.X -= 5;
+                }
+
+                m_renderer.MoveCamera(camPos);
             }
         }
 
